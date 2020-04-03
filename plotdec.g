@@ -1,5 +1,7 @@
 #!/usr/bin/gnuplot -persist
 #
+# Plot number of new deaths as function of accumulated cases.
+# NOTE: Plot command, labels and arrows might have to be manually adjusted
 #
 #    	G N U P L O T
 #    	Version 5.2 patchlevel 8    last modified 2019-12-01
