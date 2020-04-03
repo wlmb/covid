@@ -12,11 +12,11 @@ In includes the following
   results.
 
   To run the program you need a perl compiler/interpreter and the
-  packages Spreadsheet::Read, Spreadsheet::XLSX, Getopt::Long and
-  List::Util. You might also need the program wget and libreoffice.
+  perl packages Spreadsheet::Read, Spreadsheet::XLSX, Getopt::Long and
+  List::Util. You might also need the programs wget, libreoffice and gnuplot.
 
   Run it without arguments or with the argument --help to get
-  instruccions: `perl extractCases.pl -h`.
+  instruccions: `perl extractCases.pl --help`.
 
   The result is a list of files that can be fed to gnuplot for
   plotting
@@ -30,7 +30,7 @@ In includes the following
   positioning of labels and arrows.
 
 
-This software is copyright (c) 2016 by W. Luis Mochán.
+This software is copyright (c) 2020 by W. Luis Mochán.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
