@@ -57,12 +57,12 @@ set label 3 "Korea" at 10554.00, 4.3 left norotate back nopoint
 set label 4 "España" at 24684, 153 left norotate back nopoint
 set label 5 "Italia" at 8571,91 right norotate back nopoint
 set label 6 "México" at 307,3.67 right norotate back nopoint
-set label 7 "Rusia" at 1855.00, 25.0000, 0.00000 left norotate back nopoint
-unset label 7
+set label 7 "Rusia" at 3904.00, 1.37, 0.00000 left norotate back nopoint
 set label 8 "Japón" at 2502, 4.01, 0.00000 left norotate back nopoint
 unset arrow
 set arrow 4 from 31283,126 to 16316,107
 set arrow 6 from 307,3.67 to 693.7,2 head back nofilled linewidth 1.000 dashtype solid
+set arrow 7 from 3904, 1.37 to 1537,1.37
 set arrow 8 from 2500, 4 to 1187, 2.61 head back nofilled linewidth 1.000 dashtype solid
 set style increment default
 unset style line
@@ -184,8 +184,9 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
+set linetype 7 linewidth 2
 GNUTERM = "qt"
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
-plot "kr.txt" u 1:3 w l, "cn.txt" u 1:3 w l, "es.txt" u 1:3 w l, "it.txt" u 1:3 w l, "mx.txt" u 1:3 w l, "us.txt" u 1:3 w l, "ru.txt" u 1:3 w l, "jp.txt" u 1:3 w l
+plot "kr.txt" u 1:3 w l, "cn.txt" u 1:3 w l, "es.txt" u 1:3 w l, "it.txt" u 1:3 w l, "ru.txt" u 1:3 w l, "us.txt" u 1:3 w l, "mx.txt" u 1:3 w l, "jp.txt" u 1:3 w l
 #    EOF
