@@ -55,7 +55,7 @@ for my $r(2..$maxrow){
     next if none {$_ eq $geoid} @ids; #skip other countries
     # one data array for each country
     # each entry is an array of values: day month year cases deaths
-    push @{$data{$geoid}}, [map {$row[$cols{$_}]} qw(day month year cases deaths)];
+    push @{$data{$geoid}}, [map {$row[$cols{$_}]} qw(day month year cases deaths popdata2018)];
 }
 
 for my $id(@ids){ #for each country
@@ -66,14 +66,15 @@ for my $id(@ids){ #for each country
     my $totalcases=0;
     my @recent; #keep a fifo for the moving window average
     foreach(@data){
-	my ($day, $month, $year, $cases, $deaths)=@$_; #fetch data
+	my ($day, $month, $year, $cases, $deaths, $popData2018)=@$_; #fetch data
 	$totalcases+=$cases; #accumulate
 	push @recent, [($cases, $deaths)]; #push into fifo
 	next if scalar @recent <=$ws; #wait for fifo to grow
 	shift @recent; #throw oldest
 	#average new cases and deaths
 	my @avg=map {my $i=$_; sum0(map {$_->[$i]} @recent)/@recent}(0,1);
-	say OUT join " ", $totalcases, @avg; #write to output file.
+	say OUT join " ", $totalcases, @avg, map {$_/$popData2018}
+	($totalcases, @avg); #write to output file.
     }
 }
 
