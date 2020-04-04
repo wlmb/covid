@@ -146,7 +146,7 @@ set x2label ""
 set x2label  font "" textcolor lt -1 norotate
 set xrange [ 10 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
-set ylabel "Casos nuevos"
+set ylabel "Casos diarios"
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
