@@ -50,12 +50,12 @@ unset raxis
 set theta counterclockwise right
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
-set key fixed right top vertical Right noreverse enhanced autotitle nobox
+set key fixed left top vertical Right noreverse enhanced autotitle nobox
 set key noinvert samplen 4 spacing 1 width 0 height 0
 set key maxcolumns 0 maxrows 0
 set key noopaque
-unset key
-        unset label
+#unset key
+unset label
 set label 1 "EUA" at 108.3,24.5, 0.00000 right norotate back nopoint
 set label 2 "China" at 88,0.02, 0.00000 left norotate back nopoint
 set label 3 "Korea" at 287.7,1.85, 0.00000 left norotate back nopoint
@@ -63,12 +63,21 @@ set label 4 "España" at 988,223, 0.00000 right norotate back nopoint
 set label 5 "Italia" at 1416,21.7 center norotate back nopoint
 set label 6 "México" at 7.67,0.042 center norotate back nopoint
 set label 7 "Rusia" at 136,0.468, 0.00000 left norotate back nopoint
-set label 8 "Japón" at 1,0.035 left norotate back nopoint
+set label 8 "Japón" at 2.1,0.08 left norotate back nopoint
+set label 9 "Argentina" at 20.7,18.3 right norotate back nopoint
+set label 10 "Perú" at 38.58,27.4 right norotate back nopoint
+set label 11 "Panamá" at 285,18.4 left norotate back nopoint
+set label 12 "Colombia" at 17.8,0.31 left norotate back nopoint
+unset label
 unset arrow
 #set arrow 4 from 20791.0, 5320.00, 0.00000 to 55405.0, 6903.00, 0.00000 head back nofilled linewidth 1.000 dashtype solid
 set arrow 5 from 1416,22 to 1245,75
 set arrow 6 from 7.67,0.042 to 7.1,0.711 head back nofilled linewidth 1.000 dashtype solid
 set arrow 7 from 136,0.468 to 29.19,3.46 head back nofilled linewidth 1.000 dashtype solid
+set arrow 9 from 20.7,18.3 to 18.47,2.002
+set arrow 10 from 38.58,27.4 to 44,4.89
+set arrow 12 from 17.8,0.31 to 16.81,1.3
+unset arrow
 set style increment default
 unset style line
 unset style arrow
@@ -133,7 +142,7 @@ set cbtics  norangelimit logscale autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
-set title "Casos por millón de habitantes. Promedio con ventana móvil de 5 días ". date
+set title "Casos por millón de habitantes. Promedio con ventana móvil de 7 días ". date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -145,7 +154,7 @@ set xlabel "Casos totales confirmados por millón hab."
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ * : * ] noreverse writeback
+set xrange [ .1 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Casos diarios por millón hab."
 set ylabel  font "" textcolor lt -1 rotate
@@ -194,5 +203,5 @@ GNUTERM = "qt"
 ## Last datafile plotted: "jp.txt"
 #plot "kr-cases.txt" u 1:2 w l, "cn-cases.txt" u 1:2 w l, "es-cases.txt" u 1:2 w l, "it-cases.txt" u 1:2 w l, "mx-cases.txt" u 1:2 w l, "us-cases.txt" u 1:2 w l, "ru-cases.txt" u 1:2 w l, "jp-cases.txt" u 1:2 w l
 #plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l
-plot "kr.txt" u ($4*1000000):($5*1000000) w l, "cn.txt" u ($4*1000000):($5*1000000) w l, "es.txt" u ($4*1000000):($5*1000000) w l, "it.txt" u ($4*1000000):($5*1000000) w l, "ru.txt" u ($4*1000000):($5*1000000) w l, "us.txt" u ($4*1000000):($5*1000000) w l, "mx.txt" u ($4*1000000):($5*1000000) w l lw 2, "jp.txt" u ($4*1000000):($5*1000000) w l
+plot "kr.txt" u ($4*1000000):($5*1000000) w lp lt 1 ti "kr", "cn.txt" u ($4*1000000):($5*1000000) w lp lt 2 ti "cn", "es.txt" u ($4*1000000):($5*1000000) w lp lt 3 ti "es", "it.txt" u ($4*1000000):($5*1000000) w lp lt 4 ti "it", "ru.txt" u ($4*1000000):($5*1000000) w lp lt 5 ti "ru", "us.txt" u ($4*1000000):($5*1000000) w lp lt 6 ti "us", "jp.txt" u ($4*1000000):($5*1000000) w lp lt 8 ti "jp", "ar.txt" u ($4*1000000):($5*1000000) w lp lt 9 ti "ar", "pe.txt" u ($4*1000000):($5*1000000) w lp lt 10 ti "pe", "pa.txt" u ($4*1000000):($5*1000000) w lp lt 11 ti "pa", "co.txt" u ($4*1000000):($5*1000000) w lp lt 12 ti "co", "mx.txt" u ($4*1000000):($5*1000000) w lp lt 7 lw 2 ti "mx"
 #    EOF

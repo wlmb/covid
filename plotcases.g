@@ -50,12 +50,12 @@ unset raxis
 set theta counterclockwise right
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
-set key fixed right top vertical Right noreverse enhanced autotitle nobox
+set key fixed left top vertical Right noreverse enhanced autotitle nobox
 set key noinvert samplen 4 spacing 1 width 0 height 0
 set key maxcolumns 0 maxrows 0
 set key noopaque
-unset key
-        unset label
+#unset key
+unset label
 set label 1 "EUA" at 44700.0, 8355.00, 0.00000 right norotate back nopoint
 set label 2 "China" at 77504.0, 25.0000, 0.00000 right norotate back nopoint
 set label 3 "Korea" at 7295.00, 91.0000, 0.00000 right norotate back nopoint
@@ -64,11 +64,13 @@ set label 5 "Italia" at 12651.0, 1422.00, 0.00000 left norotate back nopoint
 set label 6 "México" at 1936.00, 12.0000, 0.00000 left norotate back nopoint
 set label 7 "Rusia" at 1855.00, 25.0000, 0.00000 left norotate back nopoint
 set label 8 "Japón" at 337.000, 15.0000, 0.00000 left norotate back nopoint
+unset label
 unset arrow
 set arrow 4 from 20791.0, 5320.00, 0.00000 to 55405.0, 6903.00, 0.00000 head back nofilled linewidth 1.000 dashtype solid
 set arrow 6 from 1711.00, 13.1100, 0.00000 to 734.000, 78.0000, 0.00000 head back nofilled linewidth 1.000 dashtype solid
 set arrow 7 from 1854.00, 30.0000, 0.00000 to 2133.00, 224.000, 0.00000 head back nofilled linewidth 1.000 dashtype solid
 set style increment default
+unset arrow
 unset style line
 unset style arrow
 set style histogram clustered gap 2 title textcolor lt -1
@@ -132,7 +134,7 @@ set cbtics  norangelimit logscale autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
-set title "Promedio con ventana móvil de 5 días ". date
+set title "Promedio con ventana móvil de 7 días ". date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -188,9 +190,9 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
-set linetype 7 linewidth 2
 GNUTERM = "qt"
 ## Last datafile plotted: "jp.txt"
 #plot "kr-cases.txt" u 1:2 w l, "cn-cases.txt" u 1:2 w l, "es-cases.txt" u 1:2 w l, "it-cases.txt" u 1:2 w l, "mx-cases.txt" u 1:2 w l, "us-cases.txt" u 1:2 w l, "ru-cases.txt" u 1:2 w l, "jp-cases.txt" u 1:2 w l
-plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l
+#plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l, "ar.txt" u 1:2 w l, "pe.txt" u 1:2 w l, "pa.txt" u 1:2 w l, "co.txt" u 1:2 w l
+plot "kr.txt" u 1:2 w lp  lt 1 ti "kr", "cn.txt" u 1:2 w lp  lt 2 ti "cn", "es.txt" u 1:2 w lp lt 3 ti "es", "it.txt" u 1:2 w lp lt 4 ti "it", "ru.txt" u 1:2 w lp lt 5 ti "ru", "us.txt" u 1:2 w lp lt 6 ti "us", "jp.txt" u 1:2 w lp lt 8 ti "jp", "ar.txt" u 1:2 w lp lt 9 ti "ar", "pe.txt" u 1:2 w lp lt 10 ti "pe", "pa.txt" u 1:2 w lp lt 11 ti "pa", "co.txt" u 1:2 w lp lt 12 ti "co", "mx.txt" u 1:2 w lp lt 7 lw 2 ti "mx"
 #    EOF

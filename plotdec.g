@@ -47,11 +47,11 @@ unset raxis
 set theta counterclockwise right
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
-set key fixed right top vertical Right noreverse enhanced autotitle nobox
+set key fixed left top vertical Right noreverse enhanced autotitle nobox
 set key noinvert samplen 4 spacing 1 width 0 height 0
 set key maxcolumns 0 maxrows 0
 set key noopaque
-unset key
+#unset key
 unset label
 set label 1 "EUA" at 84540, 231 right norotate back nopoint
 set label 2 "China" at 77504.0, 25.0000, 0.00000 right norotate back nopoint
@@ -61,11 +61,13 @@ set label 5 "Italia" at 8571,91 right norotate back nopoint
 set label 6 "México" at 307,3.67 right norotate back nopoint
 set label 7 "Rusia" at 3904.00, 1.37, 0.00000 left norotate back nopoint
 set label 8 "Japón" at 2502, 4.01, 0.00000 left norotate back nopoint
+unset label
 unset arrow
 set arrow 4 from 31283,126 to 16316,107
 set arrow 6 from 307,3.67 to 693.7,2 head back nofilled linewidth 1.000 dashtype solid
 set arrow 7 from 3904, 1.37 to 1537,1.37
 set arrow 8 from 2500, 4 to 1187, 2.61 head back nofilled linewidth 1.000 dashtype solid
+unset arrow
 set style increment default
 unset style line
 unset style arrow
@@ -130,7 +132,7 @@ set cbtics  norangelimit logscale autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
-set title "Promedio con ventana móvil de 5 días " . date
+set title "Promedio con ventana móvil de 7 días " . date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -190,5 +192,5 @@ set linetype 7 linewidth 2
 GNUTERM = "qt"
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
-plot "kr.txt" u 1:3 w l, "cn.txt" u 1:3 w l, "es.txt" u 1:3 w l, "it.txt" u 1:3 w l, "ru.txt" u 1:3 w l, "us.txt" u 1:3 w l, "mx.txt" u 1:3 w l, "jp.txt" u 1:3 w l
+plot "kr.txt" u 1:3 w lp  lt 1 ti "kr", "cn.txt" u 1:3 w lp  lt 2 ti "cn", "es.txt" u 1:3 w lp lt 3 ti "es", "it.txt" u 1:3 w lp lt 4 ti "it", "ru.txt" u 1:3 w lp lt 5 ti "ru", "us.txt" u 1:3 w lp lt 6 ti "us", "jp.txt" u 1:3 w lp lt 8 ti "jp", "ar.txt" u 1:3 w lp lt 9 ti "ar", "pe.txt" u 1:3 w lp lt 10 ti "pe", "pa.txt" u 1:3 w lp lt 11 ti "pa", "co.txt" u 1:3 w lp lt 12 ti "co", "mx.txt" u 1:3 w lp lt 7 lw 2 ti "mx"
 #    EOF
