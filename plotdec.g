@@ -192,5 +192,5 @@ set linetype 7 linewidth 2
 GNUTERM = "qt"
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
-plot "kr.txt" u 1:3 w lp  lt 1 ti "kr", "cn.txt" u 1:3 w lp  lt 2 ti "cn", "es.txt" u 1:3 w lp lt 3 ti "es", "it.txt" u 1:3 w lp lt 4 ti "it", "ru.txt" u 1:3 w lp lt 5 ti "ru", "us.txt" u 1:3 w lp lt 6 ti "us", "jp.txt" u 1:3 w lp lt 8 ti "jp", "ar.txt" u 1:3 w lp lt 9 ti "ar", "pe.txt" u 1:3 w lp lt 10 ti "pe", "pa.txt" u 1:3 w lp lt 11 ti "pa", "co.txt" u 1:3 w lp lt 12 ti "co", "mx.txt" u 1:3 w lp lt 7 lw 2 ti "mx"
+plot "kr.txt" u 1:3 w lp  lt 1 ti "Korea", "cn.txt" u 1:3 w lp  lt 2 ti "China", "es.txt" u 1:3 w lp lt 3 ti "España", "it.txt" u 1:3 w lp lt 4 ti "Italia", "ru.txt" u 1:3 w lp lt 5 ti "Rusia", "us.txt" u 1:3 w lp lt 6 ti "EUA", "jp.txt" u 1:3 w lp lt 8 ti "Japón", "ar.txt" u 1:3 w lp lt 9 ti "Argentina", "pe.txt" u 1:3 w lp lt 10 ti "Perú", "pa.txt" u 1:3 w lp lt 11 ti "Panamá", "co.txt" u 1:3 w lp lt 12 ti "Colombia", "mx.txt" u 1:3 w lp lt 7 lw 2 ti "México"
 #    EOF
