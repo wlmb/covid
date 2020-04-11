@@ -2,7 +2,7 @@
 
 Programs to visualize data on covid-19
 
-In includes the following
+It includes the following
 
 * extractCases.pl
 
@@ -36,6 +36,20 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 This work was partially supported by DGAPA-UNAM under grant IN111119.
+
+* mx.txt, us.txt, cn.txt...
+
+  Extracted data files for some countries. They consist of space
+  separated columns (appropriate for using as gnuplot's input) with
+  1-the accumulated number of confirmed cases
+  2-the daily number of confirmed cases
+  3-daily number of deceased
+  4-the daily number of confirmed cases divided by population
+  5-daily number of deceased divided by population
+
+* YYYYMMDDcases.png YYYYMMDDdec.png YYYYMMDDcasesN.png YYYYMMDDdecN.png
+
+  Plots of data for the date YYYYMMDD
 
 ## Author ##
 
