@@ -21,21 +21,16 @@ It includes the following
   The result is a list of files that can be fed to gnuplot for
   plotting
 
-* plotcases.g, plotdec.g
+* plotcases.g, plotdec.g, plotcasesN.g, plotdecN.g
 
   Gnuplot commands that may be loaded by the gnuplot program to plot
   the number of new cases and new deseased as a function of the total
   number of cases. `load 'plotcases.g'` and `load 'plotdec.g'`. May
   need editing according to your choice of countries and the
-  positioning of labels and arrows.
+  positioning of labels and arrows. The names with an *N* plot the
+  same information, but normalized to the total population of the
+  country.
 
-
-This software is copyright (c) 2020 by W. Luis Mochán.
-
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
-
-This work was partially supported by DGAPA-UNAM under grant IN111119.
 
 * mx.txt, us.txt, cn.txt...
 
@@ -52,6 +47,17 @@ This work was partially supported by DGAPA-UNAM under grant IN111119.
   Plots of data: daily cases, daily deceases, and the same but
   normalized to population.
 
-## Author ##
+## Author
 
    - W. Luis Mochán  `mochan@fis.unam.mx`
+
+## Licence
+
+This software is copyright (c) 2020 by W. Luis Mochán.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+## Acknowledgment
+
+This work was partially supported by DGAPA-UNAM under grant IN111119.
