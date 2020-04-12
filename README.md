@@ -47,9 +47,10 @@ This work was partially supported by DGAPA-UNAM under grant IN111119.
   4-the daily number of confirmed cases divided by population
   5-daily number of deceased divided by population
 
-* YYYYMMDDcases.png YYYYMMDDdec.png YYYYMMDDcasesN.png YYYYMMDDdecN.png
+* cases.png dec.png casesN.png decN.png
 
-  Plots of data for the date YYYYMMDD
+  Plots of data: daily cases, daily deceases, and the same but
+  normalized to population.
 
 ## Author ##
 
