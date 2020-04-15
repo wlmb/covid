@@ -64,17 +64,19 @@ for my $id(@ids){ #for each country
     my @data=@{$data{$id}}; #country data
     @data=reverse @data; #put in temporal order
     my $totalcases=0;
+    my $totaldeaths=0;
     my @recent; #keep a fifo for the moving window average
     foreach(@data){
 	my ($day, $month, $year, $cases, $deaths, $popData2018)=@$_; #fetch data
 	$totalcases+=$cases; #accumulate
+	$totaldeaths+=$deaths;
 	push @recent, [($cases, $deaths)]; #push into fifo
 	next if scalar @recent <=$ws; #wait for fifo to grow
 	shift @recent; #throw oldest
 	#average new cases and deaths
 	my @avg=map {my $i=$_; sum0(map {$_->[$i]} @recent)/@recent}(0,1);
-	say OUT join " ", $totalcases, @avg, map {$_/$popData2018}
-	($totalcases, @avg); #write to output file.
+	say OUT join " ", $totalcases, @avg, (map {$_/$popData2018}
+	($totalcases, @avg)), $totaldeaths; #write to output file. Order is historical.
     }
 }
 
