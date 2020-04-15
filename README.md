@@ -54,21 +54,31 @@ It includes the following
 
   detail of cases.png
 
+  ![detail daily vs. total cases](detail.png)
+
 * dec.png
 
   plot: daily deceased vs. total cases.
+
+  ![daily deceases vs. total cases](dec.png)
 
 * casesN.png
 
   plot: daily cases vs. total cases normalized to population
 
+  ![normalized daily vs. total cases](casesN.png)
+
 * decN.png
 
   plot: daily deceased vs. total cases normalized to population
 
+  ![normalized daily deceases vs. normalized total cases](decN.png)
+
 * decvsdec.png
 
   plot: daily deceased vs. total deceased.
+
+  ![normalized daily vs. total deceases](decvsdec.png)
 
 ## Author
 
