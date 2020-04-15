@@ -44,10 +44,29 @@ It includes the following
   6- the total population (2018)
   7- the total number of deceased
 
-* cases.png dec.png casesN.png decN.png
+* cases.png
 
-  Plots of data: daily cases, daily deceases, and the same but
-  normalized to population.
+  plot: daily cases vs. total cases
+
+* detail.png
+
+  detail of cases.png
+
+* dec.png
+
+  plot: daily deceased vs. total cases.
+
+* casesN.png
+
+  plot: daily cases vs. total cases normalized to population
+
+* decN.png
+
+  plot: daily deceased vs. total cases normalized to population
+
+* decvsdec.png
+
+  plot: daily deceased vs. total deceased.
 
 ## Author
 
