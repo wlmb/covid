@@ -48,6 +48,8 @@ It includes the following
 
   plot: daily cases vs. total cases
 
+  ![daily vs. total cases](cases.png)
+
 * detail.png
 
   detail of cases.png
