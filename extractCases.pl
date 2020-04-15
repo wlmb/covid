@@ -61,6 +61,8 @@ for my $r(2..$maxrow){
 for my $id(@ids){ #for each country
     #writed one file per country
     open (OUT, "> $id.txt") or die "Couldn't open $id.txt";
+    say OUT "# totalCases dailyCases dailyDeceased dailyCasesNormalized dailyDeceasedNormalized ",
+	"Population totalDeceased";
     my @data=@{$data{$id}}; #country data
     @data=reverse @data; #put in temporal order
     my $totalcases=0;
