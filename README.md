@@ -36,11 +36,13 @@ It includes the following
 
   Extracted data files for some countries. They consist of space
   separated columns (appropriate for using as gnuplot's input) with
-  1-the accumulated number of confirmed cases
-  2-the daily number of confirmed cases
-  3-daily number of deceased
-  4-the daily number of confirmed cases divided by population
-  5-daily number of deceased divided by population
+  1- the accumulated number of confirmed cases
+  2- the daily number of confirmed cases
+  3- daily number of deceased
+  4- the daily number of confirmed cases divided by population
+  5- daily number of deceased divided by population
+  6- the total population (2018)
+  7- the total number of deceased
 
 * cases.png dec.png casesN.png decN.png
 
