@@ -106,6 +106,18 @@ It includes the following
 
   ![normalized daily vs. total deceases](decvsdec.png)
 
+* casesMX.png
+
+  plot: daily cases vs. total cases for regions of Mexico
+
+  ![daily vs. total cases MX](casesMX.png)
+
+* decMX.png
+
+  plot: daily deceased vs. total deceased of México
+
+  ![daily vs. total deceased](decMX.png)
+
 ## Author
 
    - W. Luis Mochán  `mochan@fis.unam.mx`
