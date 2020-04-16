@@ -21,7 +21,22 @@ It includes the following
   The result is a list of files that can be fed to gnuplot for
   plotting
 
-* plotcases.g, plotdec.g, plotcasesN.g, plotdecN.g
+* extractMX.pl
+
+  Program to extract the cases for different regions of México from
+  clones of the github repository
+  [DataScienceResearchPeru/covid-19_latinoamerica](https://github.com/DataScienceResearchPeru/covid-19_latinoamerica)
+
+  To run the program you need a perl compiler/interpreter and the
+  perl package Getopt::Long.
+
+  Run it without arguments or with the argument --help to get
+  instruccions: `perl extractMX.pl --help`.
+
+  The result is sent to STDOUT but it may be redirected to a file that
+  may be fed to gnuplot for plotting.
+
+* plotcases.g, plotdec.g, plotcasesN.g, plotdecN.g, plotcasesMX, plotdecMX
 
   Gnuplot commands that may be loaded by the gnuplot program to plot
   the number of new cases and new deseased as a function of the total
@@ -29,7 +44,7 @@ It includes the following
   need editing according to your choice of countries and the
   positioning of labels and arrows. The names with an *N* plot the
   same information, but normalized to the total population of the
-  country.
+  country. The names with an *MX* are for the regions of Mexico.
 
 
 * mx.txt, us.txt, cn.txt...
@@ -43,6 +58,17 @@ It includes the following
   5- daily number of deceased divided by population
   6- the total population (2018)
   7- the total number of deceased
+
+* estados.txt
+
+  Extracted data for the states of Mexico. They consist of newline
+  separated blocks of data, one for each state, preceeded by the name
+  of the state and followed by space separated columns (apprropirate
+  for using as gnuplot's input).
+  1- the accumulated number of confirmed cases
+  2- the averaged daily number of confirmed cases
+  3- the accumulated number of deceases
+  4- the daily number of deceases
 
 * cases.png
 
