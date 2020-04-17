@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use feature qw(say);
 use Getopt::Long;
-
+use Scalar::Util qw(looks_like_number);
 my $dir; #directory with data.
 my $ws; #user supplied averaging window size
 my $help; #help flag
@@ -24,7 +24,9 @@ for my $file(@files){
 	chomp;
 	next unless /^MX/;
 	my ($code,$name,$state,$date,$cases,$deceased,$recovered)=map {lc $_} split /,/;
-	push @{$todos{$state}},[$cases, $deceased];
+	push @{$todos{$state}},[$cases, $deceased]
+	    if defined $cases and defined $deceased
+	    and looks_like_number $cases and looks_like_number($deceased);
     }
 }
 for my $state (sort {$a cmp $b} keys %todos) {
