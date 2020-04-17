@@ -172,38 +172,40 @@ set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 GNUTERM = "qt"
-## Last datafile plotted: "estados.txt"
-plot 'estados.txt' index 0 u 1:2 w lp ti "Ags",\
-        '' index 1 u 1:2 w lp ti "BC",\
-        '' index 2 u 1:2 w lp ti "BCS",\
-        '' index 3 u 1:2 w lp ti "Camp",\
-        '' index 4 u 1:2 w lp ti "Chiapas",\
-        '' index 5 u 1:2 w lp ti "Chih",\
-        '' index 6 u 1:2 w lp ti "CdMx",\
-        '' index 7 u 1:2 w lp ti "Coah",\
-        '' index 8 u 1:2 w lp ti "Col",\
-        '' index 9 u 1:2 w lp ti "Dur",\
-        '' index 10 u 1:2 w lp ti "Gto",\
-        '' index 11 u 1:2 w lp ti "Gro",\
-        '' index 12 u 1:2 w lp ti "Hid",\
-        '' index 13 u 1:2 w lp ti "Jal",\
-        '' index 14 u 1:2 w lp ti "Mex",\
-        '' index 15 u 1:2 w lp ti "Mich",\
-        '' index 16 u 1:2 w lp ti "Mor",\
-        '' index 17 u 1:2 w lp ti "Nay",\
-        '' index 18 u 1:2 w lp ti "NL",\
-        '' index 19 u 1:2 w lp ti "Oax",\
-        '' index 20 u 1:2 w lp ti "Pue",\
-        '' index 21 u 1:2 w lp ti "Que",\
-        '' index 22 u 1:2 w lp ti "QRoo",\
-        '' index 23 u 1:2 w lp ti "SLP",\
-        '' index 24 u 1:2 w lp ti "Sin",\
-        '' index 25 u 1:2 w lp ti "Son",\
-        '' index 26 u 1:2 w lp ti "Tab",\
-        '' index 27 u 1:2 w lp ti "Tam",\
-        '' index 28 u 1:2 w lp ti "Tlax",\
-        '' index 29 u 1:2 w lp ti "Ver",\
-        '' index 30 u 1:2 w lp ti "Yuc",\
-        '' index 31 u 1:2 w lp ti "Zac"
+int=3
+## Last datafile plotted: "states.txt"
+
+plot 'states.txt' index 0 u 1:2 w lp pi int  pi 5 ti "Ags",\
+        '' index 1 u 1:2 w lp pi int  ti "BC",\
+        '' index 2 u 1:2 w lp pi int  ti "BCS",\
+        '' index 3 u 1:2 w lp pi int  ti "Camp",\
+        '' index 4 u 1:2 w lp pi int  ti "Chiapas",\
+        '' index 5 u 1:2 w lp pi int  ti "Chih",\
+        '' index 6 u 1:2 w lp pi int  ti "CdMx",\
+        '' index 7 u 1:2 w lp pi int  ti "Coah",\
+        '' index 8 u 1:2 w lp pi int  ti "Col",\
+        '' index 9 u 1:2 w lp pi int  ti "Dur",\
+        '' index 10 u 1:2 w lp pi int  ti "Gto",\
+        '' index 11 u 1:2 w lp pi int  ti "Gro",\
+        '' index 12 u 1:2 w lp pi int  ti "Hid",\
+        '' index 13 u 1:2 w lp pi int  ti "Jal",\
+        '' index 14 u 1:2 w lp pi int  ti "Mex",\
+        '' index 15 u 1:2 w lp pi int  ti "Mich",\
+        '' index 16 u 1:2 w lp pi int  ti "Mor",\
+        '' index 17 u 1:2 w lp pi int  ti "Nay",\
+        '' index 18 u 1:2 w lp pi int  ti "NL",\
+        '' index 19 u 1:2 w lp pi int  ti "Oax",\
+        '' index 20 u 1:2 w lp pi int  ti "Pue",\
+        '' index 21 u 1:2 w lp pi int  ti "Que",\
+        '' index 22 u 1:2 w lp pi int  ti "QRoo",\
+        '' index 23 u 1:2 w lp pi int  ti "SLP ",\
+        '' index 24 u 1:2 w lp pi int  ti "Sin",\
+        '' index 25 u 1:2 w lp pi int  ti "Son",\
+        '' index 26 u 1:2 w lp pi int  ti "Tab",\
+        '' index 27 u 1:2 w lp pi int  ti "Tam",\
+        '' index 28 u 1:2 w lp pi int  ti "Tlax",\
+        '' index 29 u 1:2 w lp pi int  ti "Ver",\
+        '' index 30 u 1:2 w lp pi int  ti "Yuc",\
+        '' index 31 u 1:2 w lp pi int  ti "Zac"
 
 #    EOF
