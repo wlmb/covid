@@ -174,7 +174,7 @@ set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap 
 GNUTERM = "qt"
 ## Last datafile plotted: "estados.txt"
 int=3
-plot 'estados.txt' index 0 u 3:4 w lp pi int  ti "Ags",\
+plot 'states.txt' index 0 u 3:4 w lp pi int  ti "Ags",\
         '' index 1 u 3:4 w lp pi int  ti "BC",\
         '' index 2 u 3:4 w lp pi int  ti "BCS",\
         '' index 3 u 3:4 w lp pi int  ti "Camp",\
