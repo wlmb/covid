@@ -24,17 +24,20 @@ for my $file(@files){
 	chomp;
 	next unless /^MX/;
 	my ($code,$name,$state,$date,$cases,$deceased,$recovered)=map {lc $_} split /,/;
-	push @{$todos{$state}},[$cases, $deceased]
-	    if defined $cases and defined $deceased
+	next unless defined $cases and defined $deceased
 	    and looks_like_number $cases and looks_like_number($deceased);
+	push @{$todos{$state}},[$cases, $deceased];
     }
 }
 for my $state (sort {$a cmp $b} keys %todos) {
     say "\n\n# $state";
     my @data=@{$todos{$state}};
     my @recent; #fifos
+    my ($prevcases, $prevdec)=(0,0);
     for my $datum (@data) {
 	my ($cases, $deceased)=($datum->[0], $datum->[1]);
+	next unless $cases>=$prevcases and $deceased >= $prevdec;
+	($prevcases, $prevdec)=($cases, $deceased);
 	push @recent, [($cases, $deceased)]; #push into fifo
 	next if scalar @recent <= $ws; #wait for fifo to grow
 	my $old=shift @recent;
