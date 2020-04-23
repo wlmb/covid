@@ -36,7 +36,15 @@ It includes the following
   The result is sent to STDOUT but it may be redirected to a file that
   may be fed to gnuplot for plotting.
 
-* plotcases.g, plotdec.g, plotcasesN.g, plotdecN.g, plotcasesMX, plotdecMX
+* mortandad.pl
+
+  Program to extract data from an INEGI database on monthly deceases
+  and prepare a file for gnuplot. Requires the package
+  Text::CSV_XS. Before running it you must configure the path to the
+  csv database. The program not polished and is not robust. I was
+  happy it did work once.
+
+* plotcases.g, plotdec.g, plotcasesN.g, plotdecN.g, plotcasesMX...
 
   Gnuplot commands that may be loaded by the gnuplot program to plot
   the number of new cases and new deseased as a function of the total
@@ -69,6 +77,13 @@ It includes the following
   2- the averaged daily number of confirmed cases
   3- the accumulated number of deceases
   4- the daily number of deceases
+
+* mortandad2018.txt
+
+  Total monthly deceases vs. date, extracted from INEGI's
+  databases. It consists of two space separated columns of the form
+  1. Date (YYYY-MM)
+  2. Total monthly deceases.
 
 * cases.png
 
@@ -117,6 +132,13 @@ It includes the following
   plot: daily deceased vs. total deceased of México
 
   ![daily vs. total deceased](decMX.png)
+
+* decesosMensuales.png
+
+  plot: Historical monthly total deceases in México vs. date
+
+  ![historical monthly deceased vs. date](decesosMensuales.png)
+
 
 ## Author
 
