@@ -139,6 +139,12 @@ It includes the following
 
   ![historical monthly deceased vs. date](decesosMensuales.png)
 
+* gompertz.png
+
+  unaveraged daily cases vs. total cases and extrapolation using
+  fitted Gompertz formula.
+
+  ![extrapolation of daily data](gompertz.png)
 
 ## Author
 
