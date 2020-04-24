@@ -141,8 +141,8 @@ It includes the following
 
 * gompertz.png
 
-  unaveraged daily cases vs. total cases and extrapolation using
-  fitted Gompertz formula, as of 2020-04-23.
+  Averaged daily cases vs. total cases and extrapolation using
+  fitted Gompertz formula, as of 2020-04-24.
 
   ![extrapolation of daily data](gompertz.png)
 
