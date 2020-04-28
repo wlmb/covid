@@ -67,7 +67,7 @@ It includes the following
   6- the total population (2018)
   7- the total number of deceased
 
-* estados.txt
+* states.txt
 
   Extracted data for the states of Mexico. They consist of newline
   separated blocks of data, one for each state, preceeded by the name
