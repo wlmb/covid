@@ -16,9 +16,10 @@ my $sheetname; #user supplied and actual sheetname
 my $date; #user supplied date
 my $ids; #user supplied comma separated country codes
 my $ws; #user supplied averaging window size
+my $rt; #user supplied average recovery time
 my $help; #help flag
 GetOptions("sheet=s"=>\$sheetname, "date=s"=>\$date, "ids=s"=>\$ids,
-	   "ws=i"=>\$ws, "help|?"=>\$help) or usage('Bad options');
+	   "ws=i"=>\$ws, "rt=f"=>\$rt, "help|?"=>\$help) or usage('Bad options');
 # check options
 usage() if $help;
 usage("missing --sheet or --date") unless defined $sheetname or
@@ -27,7 +28,10 @@ usage("Only one of --sheet or --date allowed") if defined $sheetname
     and defined $date;
 usage("missing --ws") unless defined $ws;
 usage("ws should be positive") unless $ws>0;
+usage("missing --rt") unless defined $rt;
+usage("rt should be positive") unless $rt>0;
 usage("missing country ids") unless defined $ids;
+my $factorrt=exp(-1/$rt); #daily percentage of recoveries.
 $ids=lc $ids; #normalize to lower case
 my @ids=split /\s*,\s*/, $ids; #get list of comma separated codes.
 # possible sheet names (accounting for orthographic mistake above)
@@ -62,23 +66,24 @@ for my $id(@ids){ #for each country
     #writed one file per country
     open (OUT, "> $id.txt") or die "Couldn't open $id.txt";
     say OUT "# totalCases dailyCases dailyDeceased dailyCasesNormalized dailyDeceasedNormalized ",
-	"Population totalDeceased";
+	"Population totalDeceased Sick";
     my @data=@{$data{$id}}; #country data
     @data=reverse @data; #put in temporal order
     my $totalcases=0;
     my $totaldeaths=0;
-    my @recent; #keep a fifo for the moving window average
+    my @recent=([0,0]) x $ws; #keep a fifo for the moving window average
+    my $sick=0;
     foreach(@data){
 	my ($day, $month, $year, $cases, $deaths, $popData2018)=@$_; #fetch data
 	$totalcases+=$cases; #accumulate
 	$totaldeaths+=$deaths;
 	push @recent, [($cases, $deaths)]; #push into fifo
-	next if scalar @recent <=$ws; #wait for fifo to grow
 	shift @recent; #throw oldest
 	#average new cases and deaths
 	my @avg=map {my $i=$_; sum0(map {$_->[$i]} @recent)/@recent}(0,1);
+	$sick=$factorrt*$sick+$cases; #remaining sick + new sick.
 	say OUT join " ", $totalcases, @avg, (map {$_/$popData2018}
-	($totalcases, @avg)), $totaldeaths; #write to output file. Order is historical.
+	($totalcases, @avg)), $totaldeaths, $sick; #write to output file. Order is historical accident.
     }
 }
 
@@ -92,7 +97,7 @@ Usage:
     ./extractCases.pl --date 2020-02-25 --ids=cn,de,es,it,jp,kr,mx,ru,us --ws=5
     ./extractCases.pl \
        --sheet COVID-19-geographic-disbtribution-worldwide-2020-02-25.xlsx \
-       --ids=cn,de,es,it,jp,kr,mx,ru,us --ws=5
+       --ids=cn,de,es,it,jp,kr,mx,ru,us --ws=5 --rt=14
 
     Extracts information about the COVID-19 pandemic
 
@@ -107,6 +112,7 @@ Usage:
         --date   iso formatted date of the sheet to download
         --ids    Comma separated iso 2-letter country-codes of desired countries
         --ws     Size of the moving average window. 1 means don't average.
+        --rt     Recovery time in days.
 FIN
     exit 1;
 }
