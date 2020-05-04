@@ -46,7 +46,7 @@ It includes the following
 
 * plotcases.g, plotdec.g, plotcasesN.g, plotdecN.g, plotcasesMX...
 
-  Gnuplot commands that may be loaded by the gnuplot program to plot
+  Gnuplot scripts that may be loaded by the gnuplot program to plot
   the number of new cases and new deseased as a function of the total
   number of cases. `load 'plotcases.g'` and `load 'plotdec.g'`. May
   need editing according to your choice of countries and the
@@ -102,6 +102,12 @@ It includes the following
   plot: daily deceased vs. total cases.
 
   ![daily deceases vs. total cases](dec.png)
+
+* sick.png
+
+  plot: estimated currently sick people vs. total cases
+
+  ![sick vs. total cases](sick.png)
 
 * casesN.png
 
