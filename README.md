@@ -66,6 +66,7 @@ It includes the following
   5- daily number of deceased divided by population
   6- the total population (2018)
   7- the total number of deceased
+  8- the estimate of sick people
 
 * states.txt
 
