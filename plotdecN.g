@@ -49,7 +49,7 @@ set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
 set key fixed left top vertical Right noreverse enhanced autotitle nobox
 set key noinvert samplen 4 spacing 1 width 0 height 0
-set key maxcolumns 0 maxrows 0
+set key maxcolumns 2 maxrows 10
 set key noopaque
 #unset key
 unset label
@@ -144,7 +144,7 @@ set xlabel "Casos totales confirmados por millón hab."
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ * : * ] noreverse writeback
+set xrange [ 1 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Decesos diarios promediados por millón de hab."
 set ylabel  font "" textcolor lt -1 rotate
@@ -190,9 +190,13 @@ set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 set linetype 7 linewidth 2
 GNUTERM = "qt"
+f(x)=exp(m*log(x)+b)
+fit [x=3:33] f(x) 'mx.txt' u ($4*1e6):($6*1e6) via m,b
+f1(x)=exp(m1*log(x)+b1)
+fit [x=66:] f1(x) 'mx.txt' u ($4*1e6):($6*1e6) via m1,b1
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
 #plot "kr.txt" u ($4*1.0e6):($6*1.0e6) w l, "cn.txt" u ($4*1.0e6):($6*1.0e6) w l, "es.txt" u ($4*1.0e6):($6*1.0e6) w l, "it.txt" u ($4*1.0e6):($6*1.0e6) w l, "ru.txt" u ($4*1.0e6):($6*1.0e6) w l, "us.txt" u ($4*1.0e6):($6*1.0e6) w l, "mx.txt" u ($4*1.0e6):($6*1.0e6) w l, "jp.txt" u ($4*1.0e6):($6*1.0e6) w l
 int=5
-plot "kr.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 1 ti "Korea", "cn.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 7 lw 2 ti "México"
+plot "kr.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 1 ti "Korea", "cn.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 7 lw 2 ti "México", [1:200] f(x) w l dashtype 2 ti "Ajuste 1", [1:] f1(x) w l dashtype 3 ti "Ajuste 2"
 #    EOF

@@ -190,8 +190,12 @@ set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 set linetype 7 linewidth 2
 GNUTERM = "qt"
+f(x)=exp(m*log(x)+b)
+fit [x=1:300] f(x) 'mx.txt' u 7:3 via m,b
+f1(x)=exp(m1*log(x)+b1)
+fit [x=600:] f1(x) 'mx.txt' u 7:3 via m1,b1
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
 int=5
-plot "kr.txt" ev 1 u 7:3 w lp pi int   lt 1 ti "Korea", "cn.txt" ev 1 u 7:3 w lp pi int   lt 2 ti "China", "es.txt" ev 1 u 7:3 w lp pi int  lt 3 ti "España", "it.txt" ev 1 u 7:3 w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u 7:3 w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u 7:3 w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u 7:3 w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u 7:3 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u 7:3 w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u 7:3 w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u 7:3 w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u 7:3 w lp pi int  lt 7 lw 2 ti "México"
+plot "kr.txt" ev 1 u 7:3 w lp pi int   lt 1 ti "Korea", "cn.txt" ev 1 u 7:3 w lp pi int   lt 2 ti "China", "es.txt" ev 1 u 7:3 w lp pi int  lt 3 ti "España", "it.txt" ev 1 u 7:3 w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u 7:3 w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u 7:3 w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u 7:3 w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u 7:3 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u 7:3 w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u 7:3 w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u 7:3 w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u 7:3 w lp pi int  lt 7 lw 2 ti "México", [10:] f(x) w l dashtype 2 ti "Ajuste 1", [10:] f1(x) w l dashtype 3 ti "Ajuste 2"
 #    EOF
