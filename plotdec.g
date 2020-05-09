@@ -49,7 +49,7 @@ set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
 set key fixed left top vertical Left reverse enhanced autotitle nobox
 set key noinvert samplen 4 spacing 1 width 0 height 0
-set key maxcolumns 0 maxrows 0
+set key maxcolumns 2 maxrows 16
 set key noopaque
 #unset key
 unset label
@@ -197,5 +197,5 @@ fit [x=10000:] f1(x) 'mx.txt' u 1:3 via m1,b1
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
 int=5
-plot "kr.txt" ev 1 u 1:3 w lp pi int   lt 1 ti "Korea", "cn.txt" ev 1 u 1:3 w lp pi int   lt 2 ti "China", "es.txt" ev 1 u 1:3 w lp pi int  lt 3 ti "España", "it.txt" ev 1 u 1:3 w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u 1:3 w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u 1:3 w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u 1:3 w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u 1:3 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u 1:3 w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u 1:3 w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u 1:3 w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u 1:3 w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u 1:3 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u 1:3 w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u 1:3 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti "Ajuste 1", f1(x) w l dashtype 3 ti "Ajuste 2"
+plot "kr.txt" ev 1 u 1:3 w lp pi int   lt 1 ti "Korea", "cn.txt" ev 1 u 1:3 w lp pi int   lt 2 ti "China", "es.txt" ev 1 u 1:3 w lp pi int  lt 3 ti "España", "it.txt" ev 1 u 1:3 w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u 1:3 w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u 1:3 w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u 1:3 w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u 1:3 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u 1:3 w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u 1:3 w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u 1:3 w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u 1:3 w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u 1:3 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u 1:3 w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u 1:3 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.3f",m), f1(x) w l dashtype 3 ti sprintf("m=%.3f",m1)
 #    EOF
