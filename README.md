@@ -2,7 +2,7 @@
 
 Programs to visualize data on covid-19
 
-It includes the following
+It includes the following in directory *files*
 
 * extractCases.pl
 
@@ -90,68 +90,68 @@ It includes the following
 
   plot: daily cases vs. total cases
 
-  ![daily vs. total cases](cases.png)
+  ![daily vs. total cases](files/cases.png)
 
 * detail.png
 
   detail of cases.png
 
-  ![detail daily vs. total cases](detail.png)
+  ![detail daily vs. total cases](files/detail.png)
 
 * dec.png
 
   plot: daily deceased vs. total cases.
 
-  ![daily deceases vs. total cases](dec.png)
+  ![daily deceases vs. total cases](files/dec.png)
 
 * sick.png
 
   plot: estimated currently sick people vs. total cases
 
-  ![sick vs. total cases](sick.png)
+  ![sick vs. total cases](files/sick.png)
 
 * casesN.png
 
   plot: daily cases vs. total cases normalized to population
 
-  ![normalized daily vs. total cases](casesN.png)
+  ![normalized daily vs. total cases](files/casesN.png)
 
 * decN.png
 
   plot: daily deceased vs. total cases normalized to population
 
-  ![normalized daily deceases vs. normalized total cases](decN.png)
+  ![normalized daily deceases vs. normalized total cases](files/decN.png)
 
 * decvsdec.png
 
   plot: daily deceased vs. total deceased.
 
-  ![normalized daily vs. total deceases](decvsdec.png)
+  ![normalized daily vs. total deceases](files/decvsdec.png)
 
 * casesMX.png
 
   plot: daily cases vs. total cases for regions of Mexico
 
-  ![daily vs. total cases MX](casesMX.png)
+  ![daily vs. total cases MX](files/casesMX.png)
 
 * decMX.png
 
   plot: daily deceased vs. total deceased of México
 
-  ![daily vs. total deceased](decMX.png)
+  ![daily vs. total deceased](files/decMX.png)
 
 * decesosMensuales.png
 
   plot: Historical monthly total deceases in México vs. date
 
-  ![historical monthly deceased vs. date](decesosMensuales.png)
+  ![historical monthly deceased vs. date](files/decesosMensuales.png)
 
 * gompertz.png
 
   Averaged daily cases vs. total cases and extrapolation using
   fitted Gompertz formula, as of 2020-04-24.
 
-  ![extrapolation of daily data](gompertz.png)
+  ![extrapolation of daily data](files/gompertz.png)
 
 ## Author
 

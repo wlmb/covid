@@ -134,7 +134,7 @@ set cbtics  norangelimit logscale autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
-set title "Estimación de enfermos activos con constante de tiempo de 6 días. ". date
+set title "Promedio con ventana móvil de 7 días ". date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -148,7 +148,7 @@ set x2label ""
 set x2label  font "" textcolor lt -1 norotate
 set xrange [ 10 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
-set ylabel "Enfermos activos estimados"
+set ylabel "Casos diarios confirmados"
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
@@ -192,11 +192,8 @@ set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 GNUTERM = "qt"
 f(x)=exp(m*log(x)+b)
-fit f(x) 'mx.txt' u 1:8 via m,b
-## Last datafile plotted: "jp.txt"
-#plot "kr-cases.txt" u 1:2 w l, "cn-cases.txt" u 1:2 w l, "es-cases.txt" u 1:2 w l, "it-cases.txt" u 1:2 w l, "mx-cases.txt" u 1:2 w l, "us-cases.txt" u 1:2 w l, "ru-cases.txt" u 1:2 w l, "jp-cases.txt" u 1:2 w l
-#plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l, "ar.txt" u 1:2 w l, "pe.txt" u 1:2 w l, "pa.txt" u 1:2 w l, "co.txt" u 1:2 w l
+fit f(x) 'mx.txt' u 1:2 via m,b
 st=1
 int=5
-plot "kr.txt" ev st u 1:8 w lp pi int   lt 1 ti "Korea", "cn.txt" ev st u 1:8 w lp pi int   lt 2 ti "China", "es.txt" ev st u 1:8 w lp pi int  lt 3 ti "España", "it.txt" ev st u 1:8 w lp pi int  lt 4 ti "Italia", "ru.txt" ev st u 1:8 w lp pi int  lt 5 ti "Rusia", "us.txt" ev st u 1:8 w lp pi int  lt 6 ti "EUA", "jp.txt" ev st u 1:8 w lp pi int  lt 8 ti "Japón", "ar.txt" ev st u 1:8 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev st u 1:8 w lp pi int  lt 10 ti "Perú", "pa.txt" ev st u 1:8 w lp pi int  lt 11 ti "Panamá", "co.txt" ev st u 1:8 w lp pi int  lt 12 ti "Colombia", "de.txt" ev st u 1:8 w lp pi int  lt 12 ti "Alemania", "se.txt" ev st u 1:8 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev st u 1:8 w lp pi int  lt 13 ti "Ucrania", "mx.txt" ev st u 1:8 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.3f",m)
+plot "kr.txt" ev st u 1:2 w lp pi int   lt 1 ti "Korea", "cn.txt" ev st u 1:2 w lp pi int   lt 2 ti "China", "es.txt" ev st u 1:2 w lp pi int  lt 3 ti "España", "it.txt" ev st u 1:2 w lp pi int  lt 4 ti "Italia", "ru.txt" ev st u 1:2 w lp pi int  lt 5 ti "Rusia", "us.txt" ev st u 1:2 w lp pi int  lt 6 ti "EUA", "jp.txt" ev st u 1:2 w lp pi int  lt 8 ti "Japón", "ar.txt" ev st u 1:2 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev st u 1:2 w lp pi int  lt 10 ti "Perú", "pa.txt" ev st u 1:2 w lp pi int  lt 11 ti "Panamá", "co.txt" ev st u 1:2 w lp pi int  lt 12 ti "Colombia", "de.txt" ev st u 1:2 w lp pi int  lt 12 ti "Alemania", "se.txt" ev st u 1:2 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev st u 1:2 w lp pi int  lt 13 ti "Ucrania", "mx.txt" ev st u 1:2 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
 #    EOF

@@ -50,27 +50,35 @@ unset raxis
 set theta counterclockwise right
 set style parallel front  lt black linewidth 2.000 dashtype solid
 set key title "" center
-set key fixed left top vertical Left reverse enhanced autotitle nobox
+set key fixed left top vertical Right noreverse enhanced autotitle nobox
 set key noinvert samplen 4 spacing 1 width 0 height 0
-set key maxcolumns 0 maxrows 0
+set key maxcolumns 2 maxrows 15
 set key noopaque
 #unset key
 unset label
-set label 1 "EUA" at 44700.0, 8355.00, 0.00000 right norotate back nopoint
-set label 2 "China" at 77504.0, 25.0000, 0.00000 right norotate back nopoint
-set label 3 "Korea" at 7295.00, 91.0000, 0.00000 right norotate back nopoint
-set label 4 "España" at 20791.0, 5320.00, 0.00000 right norotate back nopoint
-set label 5 "Italia" at 12651.0, 1422.00, 0.00000 left norotate back nopoint
-set label 6 "México" at 1936.00, 12.0000, 0.00000 left norotate back nopoint
-set label 7 "Rusia" at 1855.00, 25.0000, 0.00000 left norotate back nopoint
-set label 8 "Japón" at 337.000, 15.0000, 0.00000 left norotate back nopoint
+set label 1 "EUA" at 108.3,24.5, 0.00000 right norotate back nopoint
+set label 2 "China" at 88,0.02, 0.00000 left norotate back nopoint
+set label 3 "Korea" at 287.7,1.85, 0.00000 left norotate back nopoint
+set label 4 "España" at 988,223, 0.00000 right norotate back nopoint
+set label 5 "Italia" at 1416,21.7 center norotate back nopoint
+set label 6 "México" at 7.67,0.042 center norotate back nopoint
+set label 7 "Rusia" at 136,0.468, 0.00000 left norotate back nopoint
+set label 8 "Japón" at 2.1,0.08 left norotate back nopoint
+set label 9 "Argentina" at 20.7,18.3 right norotate back nopoint
+set label 10 "Perú" at 38.58,27.4 right norotate back nopoint
+set label 11 "Panamá" at 285,18.4 left norotate back nopoint
+set label 12 "Colombia" at 17.8,0.31 left norotate back nopoint
 unset label
 unset arrow
-set arrow 4 from 20791.0, 5320.00, 0.00000 to 55405.0, 6903.00, 0.00000 head back nofilled linewidth 1.000 dashtype solid
-set arrow 6 from 1711.00, 13.1100, 0.00000 to 734.000, 78.0000, 0.00000 head back nofilled linewidth 1.000 dashtype solid
-set arrow 7 from 1854.00, 30.0000, 0.00000 to 2133.00, 224.000, 0.00000 head back nofilled linewidth 1.000 dashtype solid
-set style increment default
+#set arrow 4 from 20791.0, 5320.00, 0.00000 to 55405.0, 6903.00, 0.00000 head back nofilled linewidth 1.000 dashtype solid
+set arrow 5 from 1416,22 to 1245,75
+set arrow 6 from 7.67,0.042 to 7.1,0.711 head back nofilled linewidth 1.000 dashtype solid
+set arrow 7 from 136,0.468 to 29.19,3.46 head back nofilled linewidth 1.000 dashtype solid
+set arrow 9 from 20.7,18.3 to 18.47,2.002
+set arrow 10 from 38.58,27.4 to 44,4.89
+set arrow 12 from 17.8,0.31 to 16.81,1.3
 unset arrow
+set style increment default
 unset style line
 unset style arrow
 set style histogram clustered gap 2 title textcolor lt -1
@@ -134,7 +142,7 @@ set cbtics  norangelimit logscale autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
-set title "Promedio con ventana móvil de 7 días ". date
+set title "Casos por millón de habitantes. Promedio con ventana móvil de 7 días ". date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -142,17 +150,17 @@ set timestamp  font "" textcolor lt -1 norotate
 set trange [ * : * ] noreverse nowriteback
 set urange [ * : * ] noreverse nowriteback
 set vrange [ * : * ] noreverse nowriteback
-set xlabel "Casos totales confirmados"
+set xlabel "Casos totales confirmados por millón hab."
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ 10 : * ] noreverse writeback
+set xrange [ .1 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
-set ylabel "Casos diarios confirmados"
+set ylabel "Casos diarios por millón hab."
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
-set yrange [ 1 : * ] noreverse writeback
+set yrange [ * : * ] noreverse writeback
 set y2range [ * : * ] noreverse writeback
 set zlabel ""
 set zlabel  font "" textcolor lt -1 norotate
@@ -190,10 +198,13 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
+#set linetype 7 linewidth 2
 GNUTERM = "qt"
 f(x)=exp(m*log(x)+b)
-fit f(x) 'mx.txt' u 1:2 via m,b
-st=1
+fit f(x) 'mx.txt' u ($4*1e6):($5*1e6) via m,b
+## Last datafile plotted: "jp.txt"
+#plot "kr-cases.txt" u 1:2 w l, "cn-cases.txt" u 1:2 w l, "es-cases.txt" u 1:2 w l, "it-cases.txt" u 1:2 w l, "mx-cases.txt" u 1:2 w l, "us-cases.txt" u 1:2 w l, "ru-cases.txt" u 1:2 w l, "jp-cases.txt" u 1:2 w l
+#plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l
 int=5
-plot "kr.txt" ev st u 1:2 w lp pi int   lt 1 ti "Korea", "cn.txt" ev st u 1:2 w lp pi int   lt 2 ti "China", "es.txt" ev st u 1:2 w lp pi int  lt 3 ti "España", "it.txt" ev st u 1:2 w lp pi int  lt 4 ti "Italia", "ru.txt" ev st u 1:2 w lp pi int  lt 5 ti "Rusia", "us.txt" ev st u 1:2 w lp pi int  lt 6 ti "EUA", "jp.txt" ev st u 1:2 w lp pi int  lt 8 ti "Japón", "ar.txt" ev st u 1:2 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev st u 1:2 w lp pi int  lt 10 ti "Perú", "pa.txt" ev st u 1:2 w lp pi int  lt 11 ti "Panamá", "co.txt" ev st u 1:2 w lp pi int  lt 12 ti "Colombia", "de.txt" ev st u 1:2 w lp pi int  lt 12 ti "Alemania", "se.txt" ev st u 1:2 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev st u 1:2 w lp pi int  lt 13 ti "Ucrania", "mx.txt" ev st u 1:2 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.3f",m)
+plot "kr.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 1 ti "Korea", "cn.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
 #    EOF
