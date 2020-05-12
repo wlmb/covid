@@ -149,7 +149,7 @@ It includes the following in directory *files*
 * gompertz.png
 
   Averaged daily cases vs. total cases and extrapolation using
-  fitted Gompertz formula, as of 2020-04-24.
+  fitted Gompertz formula.
 
   ![extrapolation of daily data](files/gompertz.png)
 
