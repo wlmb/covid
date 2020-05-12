@@ -114,7 +114,8 @@ set cbtics  norangelimit logscale autofreq
 set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
-set title "Promedio con ventana m\303\263vil de 7 d\303\255as 2020-04-24"
+date = "`date -I`"
+set title "Promedio con ventana móvil de 7 días.  " . date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -172,7 +173,6 @@ set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 f(x)=a*log(K/x)*x
 GNUTERM = "qt"
-date = "2020-04-24"
 st = 1
 int = 5
 a = 0.0122484153581497
