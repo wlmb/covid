@@ -59,6 +59,7 @@ It includes the following in directory *files*
 
   Extracted data files for some countries. They consist of space
   separated columns (appropriate for using as gnuplot's input) with
+
   1- the accumulated number of confirmed cases
   2- the daily number of confirmed cases
   3- daily number of deceased
@@ -67,6 +68,10 @@ It includes the following in directory *files*
   6- the total population (2018)
   7- the total number of deceased
   8- the estimate of sick people
+  9- total cases averaged
+  10- total deaths averaged
+
+  The order is an historical accident.
 
 * states.txt
 
