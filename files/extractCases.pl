@@ -65,25 +65,30 @@ for my $r(2..$maxrow){
 for my $id(@ids){ #for each country
     #writed one file per country
     open (OUT, "> $id.txt") or die "Couldn't open $id.txt";
-    say OUT "# totalCases dailyCases dailyDeceased dailyCasesNormalized dailyDeceasedNormalized ",
-	"Population totalDeceased Sick";
+    say OUT "# totalCases dailyCases dailyDeceased " .
+	"totalCasesNormalized dailyCasesNormalized dailyDeceasedNormalized ",
+	"totalDeceased Sick totalCasesAveraged totalDeathsAv";
     my @data=@{$data{$id}}; #country data
     @data=reverse @data; #put in temporal order
     my $totalcases=0;
     my $totaldeaths=0;
-    my @recent=([0,0]) x $ws; #keep a fifo for the moving window average
+    my @recent=([0,0,0,0]) x $ws; #keep a fifo for the moving window average
     my $sick=0;
     foreach(@data){
 	my ($day, $month, $year, $cases, $deaths, $popData2018)=@$_; #fetch data
 	$totalcases+=$cases; #accumulate
 	$totaldeaths+=$deaths;
-	push @recent, [($cases, $deaths)]; #push into fifo
+	push @recent, [($cases, $deaths, $totalcases, $totaldeaths)]; #push into fifo
 	shift @recent; #throw oldest
 	#average new cases and deaths
-	my @avg=map {my $i=$_; sum0(map {$_->[$i]} @recent)/@recent}(0,1);
+	my @avg=map {my $i=$_; sum0(map {$_->[$i]} @recent)/@recent}(0..3);
+	my ($casesAv, $deceasedAv, $totalCasesAv, $totalDeathsAv)=@avg;
 	$sick=$factorrt*$sick+$cases; #remaining sick + new sick.
-	say OUT join " ", $totalcases, @avg, (map {$_/$popData2018}
-	($totalcases, @avg)), $totaldeaths, $sick; #write to output file. Order is historical accident.
+	say OUT join " ", $totalcases, $casesAv, $deceasedAv, (map {$_/$popData2018}
+	($totalcases, $casesAv, $deceasedAv)), $totaldeaths, $sick,
+	    $totalCasesAv, $totalDeathsAv,
+	    (map {$_/$popData2018}($totalCasesAv, $totalDeathsAv));
+	#write to output file. Order is historical accident.
     }
 }
 
