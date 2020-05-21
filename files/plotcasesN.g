@@ -58,7 +58,7 @@ set key noopaque
 unset label
 set label 1 "EUA" at 108.3,24.5, 0.00000 right norotate back nopoint
 set label 2 "China" at 88,0.02, 0.00000 left norotate back nopoint
-set label 3 "Korea" at 287.7,1.85, 0.00000 left norotate back nopoint
+set label 3 "Corea" at 287.7,1.85, 0.00000 left norotate back nopoint
 set label 4 "España" at 988,223, 0.00000 right norotate back nopoint
 set label 5 "Italia" at 1416,21.7 center norotate back nopoint
 set label 6 "México" at 7.67,0.042 center norotate back nopoint
@@ -206,5 +206,5 @@ fit f(x) 'mx.txt' u ($4*1e6):($5*1e6) via m,b
 #plot "kr-cases.txt" u 1:2 w l, "cn-cases.txt" u 1:2 w l, "es-cases.txt" u 1:2 w l, "it-cases.txt" u 1:2 w l, "mx-cases.txt" u 1:2 w l, "us-cases.txt" u 1:2 w l, "ru-cases.txt" u 1:2 w l, "jp-cases.txt" u 1:2 w l
 #plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l
 int=5
-plot "kr.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 1 ti "Korea", "cn.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
+plot "kr.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 1 ti "Corea", "cn.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
 #    EOF

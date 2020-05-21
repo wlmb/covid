@@ -58,7 +58,7 @@ set key noopaque
 unset label
 set label 1 "EUA" at 44700.0, 8355.00, 0.00000 right norotate back nopoint
 set label 2 "China" at 77504.0, 25.0000, 0.00000 right norotate back nopoint
-set label 3 "Korea" at 7295.00, 91.0000, 0.00000 right norotate back nopoint
+set label 3 "Corea" at 7295.00, 91.0000, 0.00000 right norotate back nopoint
 set label 4 "España" at 20791.0, 5320.00, 0.00000 right norotate back nopoint
 set label 5 "Italia" at 12651.0, 1422.00, 0.00000 left norotate back nopoint
 set label 6 "México" at 1936.00, 12.0000, 0.00000 left norotate back nopoint
@@ -195,6 +195,6 @@ f(x)=exp(m*log(x)+b)
 fit f(x) 'mx.txt' u 1:2 via m,b
 st=1
 int=5
-plot "kr.txt" ev st u 1:2 w lp pi int   lt 1 ti "Korea", "cn.txt" ev st u 1:2 w lp pi int   lt 2 ti "China", "es.txt" ev st u 1:2 w lp pi int  lt 3 ti "España", "it.txt" ev st u 1:2 w lp pi int  lt 4 ti "Italia", "ru.txt" ev st u 1:2 w lp pi int  lt 5 ti "Rusia", "us.txt" ev st u 1:2 w lp pi int  lt 6 ti "EUA", "jp.txt" ev st u 1:2 w lp pi int  lt 8 ti "Japón", "ar.txt" ev st u 1:2 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev st u 1:2 w lp pi int  lt 10 ti "Perú", "pa.txt" ev st u 1:2 w lp pi int  lt 11 ti "Panamá", "co.txt" ev st u 1:2 w lp pi int  lt 12 ti "Colombia", "de.txt" ev st u 1:2 w lp pi int  lt 12 ti "Alemania", "se.txt" ev st u 1:2 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev st u 1:2 w lp pi int  lt 13 ti "Ucrania", "mx.txt" ev st u 1:2 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
+plot "kr.txt" ev st u 1:2 w lp pi int   lt 1 ti "Corea", "cn.txt" ev st u 1:2 w lp pi int   lt 2 ti "China", "es.txt" ev st u 1:2 w lp pi int  lt 3 ti "España", "it.txt" ev st u 1:2 w lp pi int  lt 4 ti "Italia", "ru.txt" ev st u 1:2 w lp pi int  lt 5 ti "Rusia", "us.txt" ev st u 1:2 w lp pi int  lt 6 ti "EUA", "jp.txt" ev st u 1:2 w lp pi int  lt 8 ti "Japón", "ar.txt" ev st u 1:2 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev st u 1:2 w lp pi int  lt 10 ti "Perú", "pa.txt" ev st u 1:2 w lp pi int  lt 11 ti "Panamá", "co.txt" ev st u 1:2 w lp pi int  lt 12 ti "Colombia", "de.txt" ev st u 1:2 w lp pi int  lt 12 ti "Alemania", "se.txt" ev st u 1:2 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev st u 1:2 w lp pi int  lt 13 ti "Ucrania", "mx.txt" ev st u 1:2 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
 #"nl.txt" ev st u 1:2 w lp pi int  lt 14 ti "Holanda",
 #    EOF
