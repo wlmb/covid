@@ -1,4 +1,4 @@
-#!/usr/bin/gnuplot -persist
+!/usr/bin/gnuplot -persist
 #
 #
 #    	G N U P L O T
@@ -115,7 +115,7 @@ set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
 date = "`date -I`"
-set title "Promedio con ventana móvil de 7 días.  " . date
+set title "Sin promediar.  " . date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
