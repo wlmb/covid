@@ -171,7 +171,7 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
-f(x)=a*log(K/x)*x
+f(a,K,x)=a*log(K/x)*x
 GNUTERM = "qt"
 st = 1
 int = 5
@@ -185,8 +185,8 @@ FIT_P = 0.0
 FIT_NITER = 6
 a_err = 0.00121791140282441
 K_err = 899101.37361578
-fit f(x) 'mx.txt' u 1:2 via a,K
+fit f(a,K,x) 'mx.txt' u 1:2 via a,K
 ## Last datafile plotted: "mx.txt"
-plot 'mx.txt' u 1:2 w lp pi int ti 'Mexico', f(x) w l ti sprintf("Gompertz, saturacion=%.3g", K)
+plot 'mx.txt' u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err)
 ## fit f(x) 'mx.txt' u 1:2 via a,K
 #    EOF
