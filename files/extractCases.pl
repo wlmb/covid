@@ -48,7 +48,7 @@ my $maxcol=$sheet->maxcol;
 my $maxrow=$sheet->maxrow;
 my @colnames=$sheet->row(1);
 #dateRep, day, month, year, cases, deaths, countriesAndTerritories,
-#geoId, countryterritoryCode, popData2018
+#geoId, countryterritoryCode, popData2019, continentExp
 my %cols;
 map {$cols{lc $colnames[$_]}=$_} (0..$maxcol-1); #array of column names
 #say "maxcol $maxcol maxrow $maxrow";
@@ -59,7 +59,7 @@ for my $r(2..$maxrow){
     next if none {$_ eq $geoid} @ids; #skip other countries
     # one data array for each country
     # each entry is an array of values: day month year cases deaths
-    push @{$data{$geoid}}, [map {$row[$cols{$_}]} qw(day month year cases deaths popdata2018)];
+    push @{$data{$geoid}}, [map {$row[$cols{$_}]} qw(day month year cases deaths popdata2019)];
 }
 
 for my $id(@ids){ #for each country
@@ -75,7 +75,10 @@ for my $id(@ids){ #for each country
     my @recent=([0,0,0,0]) x $ws; #keep a fifo for the moving window average
     my $sick=0;
     foreach(@data){
-	my ($day, $month, $year, $cases, $deaths, $popData2018)=@$_; #fetch data
+	my ($day, $month, $year, $cases, $deaths, $popData2019)=@$_; #fetch data
+	#Beware:spain had undefined deaths and negative cases 2020-05-25!
+	$cases//=0;
+	$deaths//=0;
 	$totalcases+=$cases; #accumulate
 	$totaldeaths+=$deaths;
 	push @recent, [($cases, $deaths, $totalcases, $totaldeaths)]; #push into fifo
@@ -84,10 +87,10 @@ for my $id(@ids){ #for each country
 	my @avg=map {my $i=$_; sum0(map {$_->[$i]} @recent)/@recent}(0..3);
 	my ($casesAv, $deceasedAv, $totalCasesAv, $totalDeathsAv)=@avg;
 	$sick=$factorrt*$sick+$cases; #remaining sick + new sick.
-	say OUT join " ", $totalcases, $casesAv, $deceasedAv, (map {$_/$popData2018}
+	say OUT join " ", $totalcases, $casesAv, $deceasedAv, (map {$_/$popData2019}
 	($totalcases, $casesAv, $deceasedAv)), $totaldeaths, $sick,
 	    $totalCasesAv, $totalDeathsAv,
-	    (map {$_/$popData2018}($totalCasesAv, $totalDeathsAv));
+	    (map {$_/$popData2019}($totalCasesAv, $totalDeathsAv));
 	#write to output file. Order is historical accident.
     }
 }
