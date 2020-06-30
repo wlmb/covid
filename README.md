@@ -153,10 +153,17 @@ It includes the following in directory *files*
 
 * gompertz.png
 
-  Averaged daily cases vs. total cases and extrapolation using
+  Averaged daily cases vs. total cases for Mexico and extrapolation using
   fitted Gompertz formula.
 
   ![extrapolation of daily data](files/gompertz.png)
+
+* gompertzdec.png
+
+  Averaged daily deceased vs. total deceased for Mexico and extrapolation using
+  fitted Gompertz formula.
+
+  ![extrapolation of daily data](files/gompertzdec.png)
 
 ## Author
 
