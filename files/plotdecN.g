@@ -150,7 +150,7 @@ set ylabel "Decesos diarios promediados por millón de hab."
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
-set yrange [ * : * ] noreverse writeback
+set yrange [ 0.001 : * ] noreverse writeback
 set y2range [ * : * ] noreverse writeback
 set zlabel ""
 set zlabel  font "" textcolor lt -1 norotate

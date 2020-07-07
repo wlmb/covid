@@ -150,7 +150,7 @@ set ylabel "Decesos diarios promediados"
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
-set yrange [ 1 : * ] noreverse writeback
+set yrange [ 1 : 10000 ] noreverse writeback
 set y2range [ * : * ] noreverse writeback
 set zlabel ""
 set zlabel  font "" textcolor lt -1 norotate
