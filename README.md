@@ -156,11 +156,14 @@ It includes the following in directory *files*
   Daily cases vs. total cases for Mexico and extrapolation using
   fitted Gompertz formula. Not averaged
 
-  ![extrapolation of daily data](files/gompertz.png)
+  ![extrapolation of daily cases data](files/gompertz.png)
 
-  Animation.
+* Animation.
 
-  ![extrapolation of daily data](files/animateGompertz.gif)
+  Daily cases vs. total cases for Mexico and animation of the extrapolation for
+  different days fitted Gompertz formula. Not averaged.
+
+  ![animation of extrapolation of daily cases](files/animateGompertz.gif)
 
 
 * gompertzdec.png
@@ -168,7 +171,7 @@ It includes the following in directory *files*
   Daily deceased vs. total deceased for Mexico and extrapolation using
   fitted Gompertz formula. Not averaged.
 
-  ![extrapolation of daily data](files/gompertzdec.png)
+  ![extrapolation of daily deceases data](files/gompertzdec.png)
 
 ## Author
 
