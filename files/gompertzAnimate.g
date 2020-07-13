@@ -181,7 +181,7 @@ fit f(a,K,x) 'mx.txt' u 1:2 via a,K
 plot 'mx.txt' u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err)
 pause -1
 m=`wc -l <mx.txt` # number of lines in file
-while(m>20){
+while(m>=62+51){ #62 zeroes + 51 skipped
     in=sprintf("rem%03d.txt", m);
     name=sprintf("rem%03d.png", m);
     set term "png"
