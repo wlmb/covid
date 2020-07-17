@@ -190,7 +190,8 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
-GNUTERM = "qt"
+set term png
+set out "sick.png"
 f(x)=exp(m*log(x)+b)
 fit f(x) 'mx.txt' u 1:8 via m,b
 ## Last datafile plotted: "jp.txt"

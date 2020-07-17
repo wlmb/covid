@@ -199,7 +199,8 @@ set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 #set linetype 7 linewidth 2
-GNUTERM = "qt"
+set term png
+set out "casesN.png"
 f(x)=exp(m*log(x)+b)
 fit f(x) 'mx.txt' u ($4*1e6):($5*1e6) via m,b
 ## Last datafile plotted: "jp.txt"

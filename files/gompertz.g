@@ -1,4 +1,4 @@
-!/usr/bin/gnuplot -persist
+#!/usr/bin/gnuplot -persist
 #
 #
 #    	G N U P L O T
@@ -172,7 +172,8 @@ set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 f(a,K,x)=a*log(K/x)*x
-GNUTERM = "qt"
+set term 'png'
+set output 'gompertz.png'
 st = 1
 int = 5
 a = 0.0122484153581497

@@ -10,7 +10,8 @@
 #    	gnuplot home:     http://www.gnuplot.info
 #    	faq, bugs, etc:   type "help FAQ"
 #    	immediate help:   type "help"  (plot window: hit 'h')
-set terminal qt 0 font "Sans,9" size 1200,800
+set term png  font "Sans,9" size 1200,800
+set out "decMX.png"
 # set output
 date="`date -I`"
 unset clip points
@@ -170,7 +171,6 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
-GNUTERM = "qt"
 ## Last datafile plotted: "estados.txt"
 int=3
 set multiplot layout 2,3 title "Decesos, promedio con ventana móvil de 7 días ". date

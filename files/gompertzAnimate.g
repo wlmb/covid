@@ -1,4 +1,4 @@
-!/usr/bin/gnuplot -persist
+#!/usr/bin/gnuplot -persist
 #
 #
 #    	G N U P L O T
@@ -115,7 +115,7 @@ set rtics axis in scale 1,0.5 nomirror norotate  autojustify
 set rtics  norangelimit autofreq
 unset ttics
 date = "`date -I`"
-set title "Sin promediar.  " . date
+set title "Datos promediados con ventana movil de 7 días.  " . date
 set title  font "" textcolor lt -1 norotate
 set timestamp bottom
 set timestamp ""
@@ -178,9 +178,10 @@ N=10.0
 a = 0.0122484153581497
 K = 1666880.07275555
 fit f(a,K,x) 'mx.txt' u 1:2 via a,K
-plot 'mx.txt' u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err)
-pause -1
+#plot 'mx.txt' u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err)
+#pause -1
 m=`wc -l <mx.txt` # number of lines in file
+set print "gompertzK.txt"
 while(m>=62+51){ #62 zeroes + 51 skipped
     in=sprintf("rem%03d.txt", m);
     name=sprintf("rem%03d.png", m);
@@ -188,6 +189,7 @@ while(m>=62+51){ #62 zeroes + 51 skipped
     set output name
     set title sprintf("Ajusta tras %d días. %s", m-62, date)
     fit [x=2:] f(a,K,x) in u 1:2 via a,K
+    print m, K
     plot in u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err);
     m=m-1;
 }

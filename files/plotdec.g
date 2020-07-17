@@ -189,7 +189,8 @@ set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 set linetype 7 linewidth 2
-GNUTERM = "qt"
+set term png
+set output "dec.png"
 f(x)=exp(m*log(x)+b)
 fit [x=1:5000] f(x) 'mx.txt' u 1:3 via m,b
 f1(x)=exp(m1*log(x)+b1)
