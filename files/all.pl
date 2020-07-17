@@ -3,6 +3,7 @@ use strict;
 use warnings;
 use feature qw(say);
 use Getopt::Long;
+use List::Util qw(none);
 
 my $help;
 my $download_1_flag;
@@ -12,19 +13,22 @@ my $skip_extract_flag;
 my $clean_flag;
 
 my $options=q(
-    1=>\$download_1_flag,
-    7=>\$download_7_flag,
-    m=>\$download_mx_flag,
-    s=>\$skip_extract_flag,
-    c=>\$clean_flag,
-    h=>\$help,
+    1=>\$download_1_flag,     # Use non averaged data. Download if required
+    7=>\$download_7_flag,     # Use 7 day moving average. Download if req.
+    m=>\$download_mx_flag,    # Download Mexico's data
+    s=>\$skip_extract_flag,   # Skip (slow) extract phase
+    c=>\$clean_flag,          # Clean all rem temporal files
+    'h|help|?'=>\$help,       # Print help.
 );
-
-GetOptions(# not kosher but simple
-    eval $options
+my %options=(eval $options); # not kosher but simple
+die "Bad option definition: $@" if $@;
+GetOptions(
+	   %options
     )
     or usage($options, "Bad options");
 usage($options, "Usage") if $help;
+usage($options, "Usage") if none {defined ${$_}} values %options;
+
 
 chomp(my $today=`date -I`);
 die "Date failed" unless defined $today;
