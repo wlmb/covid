@@ -2,9 +2,10 @@
 use strict;
 use warnings;
 use feature qw(say);
-use Spreadsheet::Read;
+#use Spreadsheet::Read;
+use Text::CSV;
 use Getopt::Long;
-use List::Util qw{sum0 none};
+use List::Util qw{sum0 none all};
 
 # Not sure if the site address or the name prefix will work allways. Check.
 #Downloads address
@@ -35,31 +36,47 @@ my $factorrt=exp(-1/$rt); #daily percentage of recoveries.
 $ids=lc $ids; #normalize to lower case
 my @ids=split /\s*,\s*/, $ids; #get list of comma separated codes.
 # possible sheet names (accounting for orthographic mistake above)
-my ($sheetname0, $sheetname1)=map {"$_$date.xlsx"} ($nameprefix0,$nameprefix1) if defined $date;
+my ($sheetname0, $sheetname1)=map {"$_$date.csv"} ($nameprefix0,$nameprefix1) if defined $date;
 # test each possible sheetname
 foreach($sheetname, $sheetname0, $sheetname1){
     next unless defined;
     $sheetname=$_,last if -r $_; #already downloaded
     $sheetname=$_,last if system("wget", "$site$_")==0; #download it
 }
-my $book=Spreadsheet::Read->new($sheetname) or die "Couldn't open spreadsheet";
-my $sheet=$book->sheet(1);
-my $maxcol=$sheet->maxcol;
-my $maxrow=$sheet->maxrow;
-my @colnames=$sheet->row(1);
-#dateRep, day, month, year, cases, deaths, countriesAndTerritories,
-#geoId, countryterritoryCode, popData2019, continentExp
-my %cols;
-map {$cols{lc $colnames[$_]}=$_} (0..$maxcol-1); #array of column names
+#my $book=Spreadsheet::Read->new($sheetname) or die "Couldn't open spreadsheet";
+#my $sheet=$book->sheet(1);
+#my $maxcol=$sheet->maxcol;
+#my $maxrow=$sheet->maxrow;
+#my @colnames=$sheet->row(1);
+my $sheet=Text::CSV->new({binary=>1});
+open my $fh, "<:encoding(UTF-8)", $sheetname
+    or die "Couldn't read spreadsheet $sheetname: $!";
+my $colnames_ref=$sheet->getline($fh); #read all column names.
+die "Couldn't read headers" unless defined $colnames_ref;
+my  @colnames=map {lc $_} @{$colnames_ref};
+
+# Validate headers
+my %expected_headers_set;
+map {$expected_headers_set{lc $_}=1} qw(
+    dateRep day month year cases deaths countriesAndTerritories geoId
+    countryterritoryCode popData2019 continentExp
+    Cumulative_number_for_14_days_of_COVID-19_cases_per_100000
+    );
+die "unexpected header" unless all {$expected_headers_set{$_}} @colnames;
+
+my $row={};
+$sheet->bind_columns(\@{$row}{@colnames});
+#my %cols;
+#map {$cols{lc $colnames[$_]}=$_} (0..$maxcol-1); #array of column names
 #say "maxcol $maxcol maxrow $maxrow";
 my %data;
-for my $r(2..$maxrow){
-    my @row=$sheet->row($r);
-    my $geoid=lc $row[$cols{geoid}];
+while($sheet->getline($fh)){
+    my $geoid=lc $row->{geoid};
     next if none {$_ eq $geoid} @ids; #skip other countries
     # one data array for each country
     # each entry is an array of values: day month year cases deaths
-    push @{$data{$geoid}}, [map {$row[$cols{$_}]} qw(day month year cases deaths popdata2019)];
+    push @{$data{$geoid}},
+	[map {$row->{$_}} qw(day month year cases deaths popdata2019)];
 }
 
 for my $id(@ids){ #for each country
