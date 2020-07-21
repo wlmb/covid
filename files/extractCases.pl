@@ -9,10 +9,10 @@ use List::Util qw{sum0 none all};
 
 # Not sure if the site address or the name prefix will work allways. Check.
 #Downloads address
-my $site= "https://www.ecdc.europa.eu/sites/default/files/documents/";
+#my $site= "https://www.ecdc.europa.eu/sites/default/files/documents/";
 #File name. Notice orthograpic mistake. Might have to change.
 my $nameprefix0="COVID-19-geographic-disbtribution-worldwide-";
-my $nameprefix1="COVID-19-geographic-distribution-worldwide-";
+#my $nameprefix1="COVID-19-geographic-distribution-worldwide-";
 my $sheetname; #user supplied and actual sheetname
 my $date; #user supplied date
 my $ids; #user supplied comma separated country codes
@@ -36,13 +36,18 @@ my $factorrt=exp(-1/$rt); #daily percentage of recoveries.
 $ids=lc $ids; #normalize to lower case
 my @ids=split /\s*,\s*/, $ids; #get list of comma separated codes.
 # possible sheet names (accounting for orthographic mistake above)
-my ($sheetname0, $sheetname1)=map {"$_$date.csv"} ($nameprefix0,$nameprefix1) if defined $date;
+#my ($sheetname0, $sheetname1)=map {"$_$date.csv"} ($nameprefix0,$nameprefix1) if defined $date;
 # test each possible sheetname
-foreach($sheetname, $sheetname0, $sheetname1){
-    next unless defined;
-    $sheetname=$_,last if -r $_; #already downloaded
-    $sheetname=$_,last if system("wget", "$site$_")==0; #download it
-}
+#foreach($sheetname, $sheetname0, $sheetname1){
+#    next unless defined;
+#    $sheetname=$_,last if -r $_; #already downloaded
+#    $sheetname=$_,last if system("wget", "$site$_")==0; #download it
+#}
+$sheetname="${nameprefix0}_${date}.csv" if defined $date;
+my $pagename="https://opendata.ecdc.europa.eu/covid19/casedistribution/csv/";
+-r $sheetname # already downloaded
+    or !system "wget -O $sheetname $pagename"
+    or die "couldn't download $pagename";
 #my $book=Spreadsheet::Read->new($sheetname) or die "Couldn't open spreadsheet";
 #my $sheet=$book->sheet(1);
 #my $maxcol=$sheet->maxcol;
