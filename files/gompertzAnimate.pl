@@ -10,7 +10,7 @@ for my $day (113..$lines){
 }
 !system "gnuplot gompertzAnimate.g" or die "gnuplot gompertzAnimate.g failed";
 !system
-    "convert -delay 100 -loop 5 -dispose previous "
+    "convert -delay 20 -loop 5 -dispose previous "
     . " rem*.png animateGompertz.gif"
     or die "convert failed";
 !system "gnuplot gompertzK.g" or die "gnuplot gompertzK.g failed";
