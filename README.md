@@ -149,7 +149,7 @@ It includes the following in directory *files*
   the axes correspond to different quantities. Nevertheless, I would
   hve expected a result proportional to the number of daily cases,
   maybe with a delay, not a muh faster behavior. I don't know the
-  reason. Seculating, maybe it shows that the health system improved
+  reason. Speculating, maybe it shows that the health system improved
   in its identification capacity and the percentage of correctly
   identified causes of death increased with time, or maybe there was
   some advantage of stating that unrelated deaths were covid-19
@@ -206,7 +206,7 @@ It includes the following in directory *files*
   ![sick vs. total cases](files/sick.png)
 
   Comment: 2020-07-17. This plot doesn't show the actual data, but
-  rather, an estimate. I arbitrarily that the recovery (or death) is a
+  rather, an estimate. I arbitrarily assume   that the recovery (or death) is a
   probabilistic Poisson process with some given time scale tau. Thus,
   the number of active sick patients today is yesterday's number
   multiplied by their probability of not recovering (or dying), some fixed
