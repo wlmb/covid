@@ -43,6 +43,7 @@ if($download_1_flag){
     !system "gnuplot gompertz.g" or die "gnuplot gompertz.g failed";
     !system "gnuplot gompertzdec.g" or die "gnuplot gompertzdec.g failed";
     !system "./gompertzAnimate.pl" or die "./gompertzAnimate failed";
+    !system "gnuplot maximum.g" or die "gnuplot maximum.g failed";
 }
 
 if($download_7_flag){
