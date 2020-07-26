@@ -172,12 +172,14 @@ set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 f(a,K,x)=a*log(K/x)*x
+g(b,x)=K*exp(-b*exp(-a*x))
 st = 1
 int = 5
 N=10.0
 a = 0.0122484153581497
 K = 1666880.07275555
 fit f(a,K,x) 'mx.txt' u 1:2 via a,K
+fit  g(b,x) 'mx.txt' u 0:1 via b
 #plot 'mx.txt' u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err)
 #pause -1
 m=`wc -l <mx.txt` # number of lines in file
@@ -189,7 +191,8 @@ while(m>=62+51){ #62 zeroes + 51 skipped
     set output name
     set title sprintf("Ajusta tras %d días. %s", m-62, date)
     fit [x=2:] f(a,K,x) in u 1:2 via a,K
-    print m, K
+    fit  g(b,x) in u 0:1 via b
+    print m, K, a, b
     plot in u 1:2 w lp pi int ti 'Mexico', f(a,K,x) w l ti sprintf("Gompertz, saturacion=%.3g", K), f(a-a_err,K+K_err,x) w l ti sprintf("Pesimista, saturacion=%.3g", K+K_err), f(a+a_err,K-K_err,x) w l ti sprintf("Optimista, saturacion=%.3g", K-K_err);
     m=m-1;
 }
