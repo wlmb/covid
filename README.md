@@ -104,7 +104,8 @@ It includes the following in directory *files*
   prediction. Substracting 62 gives the number of days since the first
   decease. The second column is the saturation parameter of the
   Gompertz extrapolation fitted up to the corresponding date, i.e.,
-  the K in the formula K exp(-b exp(-a t))
+  the K in the formula K exp(-b exp(-a t)). The third column is the
+  parameter a and the fourth the parameter b.
 
 * mortandad2018.txt
 
@@ -283,7 +284,7 @@ It includes the following in directory *files*
 * gompertzK.png
 
   Plot: Estimated total number of cases as a function of the number of
-  days since the first decease when the estimation was made.
+  days since the first case when the estimation was made.
 
   ![Estimated total number of cases vs. when was the estimate done](files/gompertzK.png)
 
@@ -294,6 +295,27 @@ It includes the following in directory *files*
   shown. After 50 days the expected total number of cases seems to
   increase systematically but with some large fluctuations. Currently
   the estimate lies around 1.2 million cases.
+
+* maximum.png
+
+  Plot: Estimated remaining days till the maximum number of daily
+  infections as a function of the number of days since the first case
+  when the estimation was made.
+
+  ![Estimated time to maximum vs. when was the estimate done](files/maximum.png)
+
+
+  Comment: 2020-07-26. The estimations were done using the Gompertz
+  formulae (see gompertz.png
+  above) C(t)=K exp(-b exp(-a t)). The parameters K, a and b were
+  estimated with the data up to a given moving date and from them the
+  day corresponding to the maximum was estimated as t=log(b)/a. From
+  it, the remaining time was obtained. This was repeated for
+  different dates. For a good enough model one could expect that the
+  remaining time decreases one day each day, but not so for the
+  Gompertz estimate. Thus, a linear interpolation was done and its
+  intersection with the x axis probably provides a better estimate.
+  Currently the maximum would be expected by the end of August.
 
 * gompertzdec.png
 
