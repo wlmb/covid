@@ -185,10 +185,14 @@ set title "Días faltantes para el máximo y su extrapolación. `date -I`"
 set term 'png'
 set out 'maximum.png'
 set arrow 1 from GPVAL_DATA_X_MAX,0 to GPVAL_DATA_X_MAX,GPVAL_DATA_Y_MAX
+set arrow 1 lw 2 size 5,10
 #set label 1 lab1 at GPVAL_DATA_X_MAX,.7*GPVAL_DATA_Y_MAX right
 set label 1 lab1 at GPVAL_DATA_X_MAX,5 right
-set arrow 2 from  GPVAL_DATA_X_MAX,GPVAL_DATA_Y_MAX to -b/m,GPVAL_DATA_Y_MAX
+#set arrow 2 from  GPVAL_DATA_X_MAX,GPVAL_DATA_Y_MAX to -b/m,GPVAL_DATA_Y_MAX
+set arrow 2 from  GPVAL_DATA_X_MAX,0 to -b/m,0
+set arrow 2 lw 2
 #set label 2 lab2 at (GPVAL_DATA_X_MAX-b/m)/2,1.2*GPVAL_DATA_Y_MAX center
-set label 2 lab2 at GPVAL_X_MAX,15 right
+#set label 2 lab2 at GPVAL_X_MAX,15 right
+set label 2 lab2 at -b/m,-7 right
 plot 'gompertzK.txt' u ($1-62):(log($4)/$3-$1+62) w lp pi 5, m*x+b,0
 #    EOF

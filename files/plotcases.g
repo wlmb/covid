@@ -200,10 +200,10 @@ int=5
 plot "kr.txt" ev st u 1:2 w lp pi int   lt 1 ti "Corea", "cn.txt" ev st u 1:2 w lp pi int   lt 2 ti "China", "es.txt" ev st u 1:2 w lp pi int  lt 3 ti "España", "it.txt" ev st u 1:2 w lp pi int  lt 4 ti "Italia", "ru.txt" ev st u 1:2 w lp pi int  lt 5 ti "Rusia", "us.txt" ev st u 1:2 w lp pi int  lt 6 ti "EUA", "jp.txt" ev st u 1:2 w lp pi int  lt 8 ti "Japón", "ar.txt" ev st u 1:2 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev st u 1:2 w lp pi int  lt 10 ti "Perú", "pa.txt" ev st u 1:2 w lp pi int  lt 11 ti "Panamá", "co.txt" ev st u 1:2 w lp pi int  lt 12 ti "Colombia", "de.txt" ev st u 1:2 w lp pi int  lt 12 ti "Alemania", "se.txt" ev st u 1:2 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev st u 1:2 w lp pi int  lt 13 ti "Ucrania", "mx.txt" ev st u 1:2 w lp pi int  lt 7 lw 2 ti "México", f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
 
 set out 'detail.png'
-set xr [1000:400000]
-set yr [100:10000]
-set xtics ("1K" 1000, "" 2000, "" 3000, "" 4000, "5K" 5000, "" 6000, ""  7000, "" 8000, "" 9000, "10K" 10000, "" 20000, "" 30000, "" 40000, "50K" 50000, "" 60000, "" 80000, "1e5" 100000, "" 200000, "" 300000)
-set ytics ("100" 100, "200" 200, "300" 300, "400" 400, "" 500, "600" 600, "" 700, "800" 800, "" 900, "1K" 1000, "2K" 2000, "3K" 3000, "4K" 4000, "" 5000, "6K" 6000, "" 7000, "8K" 8000, "" 9000, "10K" 10000)
+set xr [1000:600000]
+set yr [100:12000]
+set xtics ("1K" 1000, "" 2000, "" 3000, "" 4000, "5K" 5000, "" 6000, ""  7000, "" 8000, "" 9000, "10K" 10000, "" 20000, "" 30000, "" 40000, "50K" 50000, "" 60000, "" 80000, "1e5" 100000, "" 200000, "" 300000, "" 400000, "5e5" 500000, "" 600000)
+set ytics ("100" 100, "200" 200, "300" 300, "400" 400, "" 500, "600" 600, "" 700, "800" 800, "" 900, "1K" 1000, "2K" 2000, "3K" 3000, "4K" 4000, "" 5000, "6K" 6000, "" 7000, "8K" 8000, "" 9000, "10K" 10000, "" 11000)
 rep
 
 #"nl.txt" ev st u 1:2 w lp pi int  lt 14 ti "Holanda",
