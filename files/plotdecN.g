@@ -144,7 +144,7 @@ set xlabel "Casos totales confirmados por millón hab."
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ 1 : * ] noreverse writeback
+set xrange [ 10 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Decesos diarios promediados por millón de hab."
 set ylabel  font "" textcolor lt -1 rotate
@@ -198,6 +198,6 @@ fit [x=66:] f1(x) 'mx.txt' u ($4*1e6):($6*1e6) via m1,b1
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
 #plot "kr.txt" u ($4*1.0e6):($6*1.0e6) w l, "cn.txt" u ($4*1.0e6):($6*1.0e6) w l, "es.txt" u ($4*1.0e6):($6*1.0e6) w l, "it.txt" u ($4*1.0e6):($6*1.0e6) w l, "ru.txt" u ($4*1.0e6):($6*1.0e6) w l, "us.txt" u ($4*1.0e6):($6*1.0e6) w l, "mx.txt" u ($4*1.0e6):($6*1.0e6) w l, "jp.txt" u ($4*1.0e6):($6*1.0e6) w l
-int=5
+int=10
 plot "kr.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 1 ti "Corea", "cn.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($6*1e6) w lp pi int  lt 7 lw 2 ti "México"#, [1:200] f(x) w l dashtype 2 ti sprintf("m=%.2f",m), [1:] f1(x) w l dashtype 3 ti sprintf("m=%.2f",m1)
 #    EOF

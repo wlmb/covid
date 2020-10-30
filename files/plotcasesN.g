@@ -154,13 +154,13 @@ set xlabel "Casos totales confirmados por millón hab."
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ .1 : * ] noreverse writeback
+set xrange [ 10 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Casos diarios por millón hab."
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
-set yrange [ * : * ] noreverse writeback
+set yrange [ 1 : * ] noreverse writeback
 set y2range [ * : * ] noreverse writeback
 set zlabel ""
 set zlabel  font "" textcolor lt -1 norotate
@@ -206,6 +206,6 @@ fit f(x) 'mx.txt' u ($4*1e6):($5*1e6) via m,b
 ## Last datafile plotted: "jp.txt"
 #plot "kr-cases.txt" u 1:2 w l, "cn-cases.txt" u 1:2 w l, "es-cases.txt" u 1:2 w l, "it-cases.txt" u 1:2 w l, "mx-cases.txt" u 1:2 w l, "us-cases.txt" u 1:2 w l, "ru-cases.txt" u 1:2 w l, "jp-cases.txt" u 1:2 w l
 #plot "kr.txt" u 1:2 w l, "cn.txt" u 1:2 w l, "es.txt" u 1:2 w l, "it.txt" u 1:2 w l, "ru.txt" u 1:2 w l, "us.txt" u 1:2 w l, "mx.txt" u 1:2 w l, "jp.txt" u 1:2 w l
-int=5
+int=10
 plot "kr.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 1 ti "Corea", "cn.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 2 ti "China", "es.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 3 ti "España", "it.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u ($4*1e6):($5*1e6) w lp pi int  lt 7 lw 2 ti "México"#, f(x) w l dashtype 2 ti sprintf("m=%.2f",m)
 #    EOF

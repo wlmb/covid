@@ -129,7 +129,7 @@ set xlabel "Casos totales confirmados"
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ 10 : * ] noreverse writeback
+set xrange [ 100 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Casos diarios confirmados"
 set ylabel  font "" textcolor lt -1 rotate
@@ -173,7 +173,7 @@ set loadpath
 set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
-int=3
+int=10
 ## Last datafile plotted: "states.txt"
 set multiplot layout 2, 3 title "Casos. Promedio con ventana móvil de 7 días ". date
 plot 'states.txt' index 0 u 1:2 w lp pi int  pi 5 ti "Ags",\

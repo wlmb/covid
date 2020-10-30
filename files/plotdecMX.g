@@ -127,7 +127,7 @@ set xlabel "Decesos totales"
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ * : * ] noreverse writeback
+set xrange [ 100 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Decesos diarios"
 set ylabel  font "" textcolor lt -1 rotate
@@ -172,7 +172,7 @@ set fontpath
 set psdir
 set fit brief errorvariables nocovariancevariables errorscaling prescale nowrap v5
 ## Last datafile plotted: "estados.txt"
-int=3
+int=10
 set multiplot layout 2,3 title "Decesos, promedio con ventana móvil de 7 días ". date
 plot 'states.txt' index 0 u 3:4 w lp pi int  ti "Ags",\
         '' index 1 u 3:4 w lp pi int  ti "BC",\

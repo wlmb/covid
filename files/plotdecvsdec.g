@@ -144,13 +144,13 @@ set xlabel "Decesos totales confirmados"
 set xlabel  font "" textcolor lt -1 norotate
 set x2label ""
 set x2label  font "" textcolor lt -1 norotate
-set xrange [ * : * ] noreverse writeback
+set xrange [100 : * ] noreverse writeback
 set x2range [ * : * ] noreverse writeback
 set ylabel "Decesos diarios promediados"
 set ylabel  font "" textcolor lt -1 rotate
 set y2label ""
 set y2label  font "" textcolor lt -1 rotate
-set yrange [ 1 : * ] noreverse writeback
+set yrange [ 10 : * ] noreverse writeback
 set y2range [ * : * ] noreverse writeback
 set zlabel ""
 set zlabel  font "" textcolor lt -1 norotate
@@ -197,6 +197,6 @@ f1(x)=exp(m1*log(x)+b1)
 fit [x=600:] f1(x) 'mx.txt' u 7:3 via m1,b1
 ## Last datafile plotted: "jp.txt"
 #plot "kr-dec.txt" u 1:2 w l, "cn-dec.txt" u 1:2 w l, "es-dec.txt" u 1:2 w l, "it-dec.txt" u 1:2 w l, "mx-dec.txt" u 1:2 w l, "us-dec.txt" u 1:2 w l, "ru-dec.txt" u 1:2 w l, "jp-dec.txt" u 1:2 w l
-int=5
+int=10
 plot "kr.txt" ev 1 u 7:3 w lp pi int   lt 1 ti "Corea", "cn.txt" ev 1 u 7:3 w lp pi int   lt 2 ti "China", "es.txt" ev 1 u 7:3 w lp pi int  lt 3 ti "España", "it.txt" ev 1 u 7:3 w lp pi int  lt 4 ti "Italia", "ru.txt" ev 1 u 7:3 w lp pi int  lt 5 ti "Rusia", "us.txt" ev 1 u 7:3 w lp pi int  lt 6 ti "EUA", "jp.txt" ev 1 u 7:3 w lp pi int  lt 8 ti "Japón", "ar.txt" ev 1 u 7:3 w lp pi int  lt 9 ti "Argentina", "pe.txt" ev 1 u 7:3 w lp pi int  lt 10 ti "Perú", "pa.txt" ev 1 u 7:3 w lp pi int  lt 11 ti "Panamá", "co.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Colombia", "de.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Alemania", "se.txt" ev 1 u 7:3 w lp pi int  lt 12 ti "Suecia", "ua.txt" ev 1 u 7:3 w lp pi int  lt 13 lw 2 ti "Ucrania", "mx.txt" ev 1 u 7:3 w lp pi int  lt 7 lw 2 ti "México"#, [10:] f(x) w l dashtype 2 ti sprintf("m=%.2f",m), [10:] f1(x) w l dashtype 3 ti sprintf("m=%.2f",m1)
 #    EOF
